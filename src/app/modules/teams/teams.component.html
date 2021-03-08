@@ -1,0 +1,28 @@
+
+<div class="teams">
+  <mat-form-field>
+    <mat-label>Leagues</mat-label>
+    <mat-select #select (selectionChange)="getClubs(select.value)">
+      <mat-option value="2002">Bundesliga (GERMANY)</mat-option>
+      <mat-option value="2021">Premier League (ENGLAND)</mat-option>
+      <mat-option value="2019">Serie A (ITALY)</mat-option>
+      <mat-option value="2014">Primera Division (SPAIN)</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+    <ng-container *ngFor="let team of teams">
+      <mat-card class="team-card" routerLink="/teams/{{team.id}}" fxFlex="0 1 calc(33.3% - 32px)"
+        fxFlex.lt-md="0 1 calc(50% - 32px)"
+        fxFlex.lt-sm="100%">
+        <mat-card-header>
+          <!-- <mat-icon>more_vert</mat-icon> -->
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <img mat-card-avatar [src]="team.crestUrl" alt="Photo of {{team.name}}">
+          <mat-card-title>{{team.name}}</mat-card-title>
+          <mat-card-subtitle><b>Founded:</b> {{team.founded}}</mat-card-subtitle>
+          <mat-card-subtitle><b>Stadium:</b> {{team.venue}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>

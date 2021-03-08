@@ -1,0 +1,36 @@
+<p>
+  <!-- <mat-toolbar>
+    <span class="header-spacer">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+    </span>
+    <span>EPL</span>
+  </mat-toolbar> -->
+  <mat-toolbar color="primary">
+    <span class="fill-remaining-space">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/" >
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/teams']">
+          <mat-icon>people_outline</mat-icon>
+          <span>Teams</span>
+        </button>
+        <button mat-menu-item routerLink="/teams">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </span>
+    <span class="fill-remaining-space">Soccer Space</span>
+  </mat-toolbar>
+</p>

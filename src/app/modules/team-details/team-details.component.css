@@ -1,0 +1,46 @@
+.content {
+  position: relative;
+  padding: 16px;
+  padding-top: 0;
+}
+.card-col {
+  padding-right: 8px;
+  padding-left: 8px;
+  flex: 1 1 25%;
+  box-sizing: border-box;
+  max-width: 25%;
+}
+.card-row {
+  margin-right: -8px;
+  margin-left: -8px;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  display: flex;
+}
+.page-header {
+  display: block;
+  padding: 16px;
+  margin: -16px -16px 16px;
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.mat-list-base {
+  position: relative;
+}
+.text-center {
+  text-align: center !important;
+}
+.mat-list-base {
+  padding-top: 8px;
+  display: block;
+  -webkit-tap-highlight-color: transparent;
+}
+
+

@@ -1,6 +1,21 @@
-# EPL
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
+
+# Soccer Space
+A space to easily keep update with soccer games in Europe. From teams, standings, player, etc
+
+
+## Set up Environment variable 
+
+In `src/environment/environment.ts`
+```
+export const environment = {
+  production: false,
+  title: 'Local Environment Running',
+  token: 'token', // get your own token from https://www.football-data.org/
+  apiURL: 'http://api.football-data.org/v2/'
+};
+```
 
 ## Development server
 

@@ -1,0 +1,51 @@
+<div class="content">
+  <div class="page-header p-t-32 p-b-48 m-b--24 bg-gray-900">
+    <h1 class="page-title">{{data.name}} <small>{{data.founded}}</small></h1>
+  </div>
+  <div fxLayout="row wrap" class="card-row" >
+    <div class="card-col" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33.33" fxFlex.gt-md="25">
+      <mat-card>
+        <div class="text-center">
+          <img class="m-b-8 r-full" [src]="data.crestUrl" alt="" width="80">
+          <h2 class="m-t-0 m-b-8 f-w-400">{{data?.name}}</h2>
+          <p class="m-t-0 m-b-8">{{data.address}}</p>
+          <p class="m-t-0 text-grey-500">{{data.venue}}</p>
+
+          <a mat-raised-button color="primary" href={{data.website}} target="_blank">Website</a>
+          <button mat-raised-button color="accent" class="m-l-8">Email Us</button>
+        </div>
+        <mat-nav-list class="mat-nav-list mat-list-base m-x--16 m-b--16 m-t-16">
+          <mat-divider inset></mat-divider>
+          <a mat-list-item >
+            <mat-icon class="icon-20 m-r-8">account_circle</mat-icon> Overview
+          </a>
+          <mat-divider inset></mat-divider>
+          <a mat-list-item >
+            <mat-icon class="icon-20 m-r-8">settings</mat-icon> Players
+          </a>
+        </mat-nav-list>
+      </mat-card>
+    </div>
+    <div class="card-col" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="66.67" fxFlex.gt-md="75">
+      <mat-card>
+        <mat-tab-group class="m--16">
+          <mat-tab label="Squad">
+            <div class="m-16" *ngIf="data">
+              <app-players [players]="players"></app-players>
+            </div>
+          </mat-tab>
+          <mat-tab label="Fixtures">
+            <div class="m-16">
+              content 2
+            </div>
+          </mat-tab>
+          <mat-tab label="Standings">
+            <div class="m-16">
+              content 3
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+    </div>
+  </div>
+</div>
