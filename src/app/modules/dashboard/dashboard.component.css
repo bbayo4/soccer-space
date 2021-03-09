@@ -20,7 +20,9 @@
   box-sizing: border-box;
   /* max-width: 100%; */
 }
-
+.mat-form{
+  display: block !important;
+}
 .card-row {
   margin-right: -8px;
   margin-left: -8px;

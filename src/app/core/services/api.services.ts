@@ -16,8 +16,8 @@ export class ApiHttpService{
     private http: HttpClient
   ) {}
   // return teams as an Observable
-  public getMatches(leagueId): Observable<[]> {
-    return this.http.get<[]>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=27`)
+  public getMatches(leagueId, matchdayId): Observable<[]> {
+    return this.http.get<[]>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`)
       .pipe(
         tap(_ => console.log('fetched matches')),
       catchError(this.handleError<[]>('getMatches', []))
