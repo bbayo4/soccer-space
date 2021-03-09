@@ -11,7 +11,7 @@
     </span>
     <span>EPL</span>
   </mat-toolbar> -->
-  <mat-toolbar color="primary">
+  <!-- <mat-toolbar color="primary">
     <span class="fill-remaining-space">
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
@@ -32,5 +32,30 @@
       </mat-menu>
     </span>
     <span class="fill-remaining-space">Soccer Space</span>
+  </mat-toolbar> -->
+  <mat-toolbar color="primary">
+    <div fxHide.gt-xs>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <div>
+      <a routerLink="/">Soccer-Space</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+        <li>
+          <a  routerLink="/">
+            <span class="nav-caption">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a  routerLink="/teams" >
+            <span class="nav-caption">Teams</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </mat-toolbar>
+
 </p>
