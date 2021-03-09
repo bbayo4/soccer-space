@@ -1,0 +1,44 @@
+<div class="content">
+  <div fxLayout="row wrap" class="card-row">
+    <div class="card-col" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33.33" fxFlex.gt-md="25">
+      <mat-card>
+        <div class="text-center">
+          <h2 class="m-t-0 m-b-8 f-w-400">Matchweek 27</h2>
+          <p class="m-t-0 m-b-8">Premier League</p>
+          <p class="m-t-0 text-grey-500">All times shown are your local time</p>
+        </div>
+        <mat-nav-list class="mat-nav-list mat-list-base m-x--16 m-b--16 m-t-16">
+          <mat-card-subtitle class="text-center">Saturday 6 March</mat-card-subtitle>
+          <mat-divider inset></mat-divider>
+          <div fxLayout.lt-sm="column" fxLayoutAlign="flex-start" *ngFor="let match of matches">
+            <div class="card-col" xFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)"
+              fxFlex.lt-sm="100%">
+              <a mat-list-item routerLink="/teams/{{match.homeTeam.id}}">
+                {{match.homeTeam.name.substring(0,5)}}
+              </a>
+            </div>
+            <div class="card-col" xFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)"
+              fxFlex.lt-sm="100%">
+              <a class="scores">
+                <span mat-list-text>{{match.score.fullTime.homeTeam}} | {{match.score.fullTime.awayTeam}}</span>
+              </a>
+            </div>
+            <div class="card-col" xFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)"
+              fxFlex.lt-sm="100%">
+              <a mat-list-item routerLink="/teams/{{match.awayTeam.id}}">
+               {{match.awayTeam.name.substring(0,5)}}
+              </a>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+        </mat-nav-list>
+      </mat-card>
+    </div>
+    
+    <div class="card-col" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="66.67" fxFlex.gt-md="75">
+      <mat-card>
+        content
+      </mat-card>
+    </div>
+  </div>
+</div>

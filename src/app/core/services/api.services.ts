@@ -5,26 +5,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Constants } from 'src/app/config/constants';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ApiHttpService {
-  API_KEY = '662b41d088505c46f6fa4c25abd9e9b1c786d422396a46560b42cfc7a45eb7e3';
+export class ApiHttpService{
 
   constructor(
-    // Angular Modules
-    private http: HttpClient,
-    private constants: Constants
-  ) { }
-
+    private http: HttpClient
+  ) {}
   // return teams as an Observable
-  public getTeams(): Observable<[]> {
-    return this.http.get<[]>(this.constants.API_ENDPOINT + `get_teams&league_id=148&APIkey=${this.API_KEY}`)
+  public getMatches(leagueId): Observable<[]> {
+    return this.http.get<[]>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=27`)
       .pipe(
-        tap(_ => console.log('fetched teams')),
-      catchError(this.handleError<[]>('getTeams', []))
+        tap(_ => console.log('fetched matches')),
+      catchError(this.handleError<[]>('getMatches', []))
       );
   }
 
