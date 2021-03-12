@@ -6,11 +6,13 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { LayoutComponent } from './layout/layout.component';
+
 const MODULES = [
   MaterialModule,
   FlexLayoutModule,
 ];
-const COMPONENTS = [];
+const COMPONENTS = [LayoutComponent];
 const COMPONENTS_DYNAMIC = [];
 const DIRECTIVES = [];
 const PIPES = [];

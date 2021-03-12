@@ -1,16 +1,19 @@
 export interface Team {
-  position: number;
-  team: {
-      id: number;
-      name: string;
-      crestUrl: string;
+  id: number;
+  area: {
+    id: number,
+    name: string
   };
-  playedGames: number;
-  won: number;
-  draw: number;
-  lost: number;
-  points: number;
-  goalsFor: number;
-  goalsAgainst: number;
-  goalDifference: number;
+  name: string;
+  shortName: string;
+  tla: string;
+  crestUrl: string;
+  address: string;
+  phone: string;
+  website: string;
+  email: string;
+  founded: number;
+  clubColors: string;
+  venue: string;
+  lastUpdated: string;
 }

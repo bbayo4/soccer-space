@@ -1,8 +1,8 @@
 // Angular Modules
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
-import { Observable, of } from 'rxjs';
+import { Subject, BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
@@ -11,17 +11,34 @@ import { Match } from '../models/api.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiHttpService{
+export class MatchService {
+  private _matches = new BehaviorSubject<Match>({} as any);
+  private dataStore;
+  readonly matches = this._matches.asObservable();
 
   constructor(
     private http: HttpClient
-  ) {}
+  ) { }
+
+  getMatch() {
+    return this._matches.asObservable();
+  }
+
+  loadMatchesByLeague(leagueId, matchdayId) {
+    this.http.get <Match>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`).subscribe(
+      data => {
+        this.dataStore = data;
+        this._matches.next(data);
+      },
+      error => console.log('Could not load todos.')
+    );
+  }
   // return teams as an Observable
   public getMatches(leagueId, matchdayId): Observable<Match> {
     return this.http.get<Match>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`)
       .pipe(
         tap(_ => console.log('fetched matches')),
-      catchError(this.handleError<Match>('getMatches'))
+        catchError(this.handleError<Match>('getMatches'))
       );
   }
 

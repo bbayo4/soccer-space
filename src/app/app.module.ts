@@ -12,16 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTransferService } from './core/services/data-transfer.service';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/header/header.component';
-import { TeamsComponent } from './modules/teams/teams.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
+// import { HeaderComponent } from './core/header/header.component';
+// import { TeamsComponent } from './modules/teams/teams.component';
+// import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    TeamsComponent,
-    DashboardComponent,
   ],
   imports: [
     BrowserModule,

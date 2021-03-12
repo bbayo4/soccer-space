@@ -15,7 +15,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class PlayersComponent implements OnInit, OnChanges {
   @Input() players;
-  doesDataExist = false;
+  // doesDataExist = false;
   columnsToDisplay = ['name', 'position', 'nationality', 'role'];
   expandedElement: PlayerElement | null;
 
@@ -25,9 +25,9 @@ export class PlayersComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     // Check if the data exists before using it
-    if (this.players) {
-      this.doesDataExist = true;
-    }
+    // if (this.players) {
+    //   this.doesDataExist = true;
+    // }
   }
 
   getAge(dateString) {

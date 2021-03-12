@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TeamService } from '../../core/services/teams.service';
 import { Observable } from 'rxjs';
 
+import { TeamService } from '../../../core/services/teams.service';
+import { Teams } from '../../../core/models/api.model';
 
 @Component({
   selector: 'app-teams',
@@ -10,25 +11,22 @@ import { Observable } from 'rxjs';
 })
 export class TeamsComponent implements OnInit {
   title = 'EPL';
-  teams: Observable<[]>;
-
+  data: Teams;
+  teams;
   constructor(
     private teamService: TeamService
   ) { }
 
   ngOnInit() {
-    this.getTeams();
+    this.getTeams(2021);
   }
 
-  getTeams(): void {
-    this.teamService.fetchTeams(2021);
-    this.teamService.competitions.subscribe((res: any) => {
-      this.teams = res.teams;
+  getTeams(id: number): void {
+    this.teamService.getTeams(id).subscribe((res: Teams) => {
+      this.data = res;
+      this.teams = this.data.teams;
+      console.log('games', this.teams);
     });
-  }
-
-  getClubs(leagueId: number) {
-    this.teamService.fetchTeams(leagueId);
   }
 
 }

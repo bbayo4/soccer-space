@@ -1,17 +1,17 @@
 <div class="content">
   <div class="page-header p-t-32 p-b-48 m-b--24 bg-gray-900">
-    <h1 class="page-title">{{data.name}} <small>{{data.founded}}</small></h1>
+    <h1 class="page-title">{{data?.name}} <small>{{data?.founded}}</small></h1>
   </div>
   <div fxLayout="row wrap" class="card-row" >
     <div class="card-col" fxFlex="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33.33" fxFlex.gt-md="25">
       <mat-card>
         <div class="text-center">
-          <img class="m-b-8 r-full" [src]="data.crestUrl" alt="" width="80">
+          <img class="m-b-8 r-full" [src]="data?.crestUrl" alt="" width="80">
           <h2 class="m-t-0 m-b-8 f-w-400">{{data?.name}}</h2>
-          <p class="m-t-0 m-b-8">{{data.address}}</p>
-          <p class="m-t-0 text-grey-500">{{data.venue}}</p>
+          <p class="m-t-0 m-b-8">{{data?.address}}</p>
+          <p class="m-t-0 text-grey-500">{{data?.venue}}</p>
 
-          <a mat-raised-button color="primary" href={{data.website}} target="_blank">Website</a>
+          <a mat-raised-button color="primary" href={{data?.website}} target="_blank">Website</a>
           <button mat-raised-button color="accent" class="m-l-8">Email Us</button>
         </div>
         <mat-nav-list class="mat-nav-list mat-list-base m-x--16 m-b--16 m-t-16">
