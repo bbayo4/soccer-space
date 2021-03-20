@@ -17,3 +17,4 @@ export interface Team {
   venue: string;
   lastUpdated: string;
 }
+

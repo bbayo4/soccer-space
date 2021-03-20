@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { TeamService } from '../../../core/services/teams.service';
-import { Teams } from '../../../core/models/api.model';
+import { TeamService } from '@shared/services/teams.service';
+import { Teams } from '@core/models/api.model';
 
 @Component({
   selector: 'app-teams',
@@ -13,19 +14,32 @@ export class TeamsComponent implements OnInit {
   title = 'EPL';
   data: Teams;
   teams;
+  state;
   constructor(
-    private teamService: TeamService
-  ) { }
+    private teamService: TeamService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute
+  ) {
+  }
 
   ngOnInit() {
-    this.getTeams(2021);
+    this.state = this.activatedRoute.paramMap
+      .pipe(map(() => window.history.state))
+      .subscribe(state => {
+        const id = state && state.id;
+        if (id){
+          this.getTeams(id);
+        } else {
+          this.getTeams(2021);
+        }
+      });
   }
 
   getTeams(id: number): void {
     this.teamService.getTeams(id).subscribe((res: Teams) => {
       this.data = res;
       this.teams = this.data.teams;
-      console.log('games', this.teams);
+      console.log('teams', this.teams);
     });
   }
 

@@ -1,0 +1,76 @@
+.mat-card-avatar {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin: -5px;
+}
+
+table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  opacity: 0.95;
+}
+
+td {
+  width: 50px;
+}
+
+tr.mat-header-row {
+  background: snow
+}
+
+th{
+  font-weight: bold;
+}
+
+/* td:nth-child(1), */
+td:nth-child(2) {
+  width: 24px;
+}
+
+td:nth-child(3) {
+  width: 200px;
+  font-weight: 500;
+}
+
+th.mat-header-cell:last-of-type {
+  text-align: center;
+}
+
+.mat-form-field {
+  background-color: white;
+  opacity: 0.95;
+  border-radius: 5px;
+}
+.team-form {
+  padding:0;
+  margin:0;
+  display: flex;
+  list-style: none;
+  justify-content:center;
+}
+span.form-badge {
+  display: inline-block;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  line-height: 1.6em;
+  margin: 0.1em;
+  border-radius: 50%;
+  text-align: center;
+  background: #76766f;
+  color: #fefefe; 
+  cursor: pointer;
+  vertical-align: middle;
+  font-family: "PremierSans-Bold", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 400;
+ 
+}
+span.badge-win{
+  background: #13cf00;
+}
+span.badge-lose {
+  background: #d81920;
+}

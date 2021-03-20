@@ -1,6 +1,9 @@
-.teams{
-  padding: 0 0 0 32px;
+.content {
+  position: relative;
+  padding: 16px;
+  padding-top: 0;
 }
+
 .mat-card {
   margin-bottom: 16px;
   cursor: pointer

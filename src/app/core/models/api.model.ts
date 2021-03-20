@@ -1,10 +1,9 @@
 import { Team } from './team.model';
 import { Squad } from './squad.model';
-import { Competition } from './competition.model';
-import { Matches } from './matches.model';
+// import { Competition } from './competition.model';
+import { Fixtures } from './matches.model';
 
 export interface ApiRespone {
-  standings: Standing[];
   teams: Clubs;
   [unusedProperties: string]: any;
 
@@ -41,18 +40,24 @@ export interface TeamDetails {
 }
 
 // interface to get matches in a competion
-export interface Match{
-  filters?: any;
-  competition?: Competition;
-  matches: Matches[];
-}
+// export interface Match{
+//   filters?: any;
+//   competition?: Competition;
+//   matches: Matches[];
+// }
 
-export interface Standing {
-  stage: string;
-  type: string;
-  group: string;
-  table: Team[];
-}
+// export interface Comp {
+//   counts?: any;
+//   filters?: any;
+//   competition?: Competition;
+// }
+
+// export interface Standing {
+//   stage: string;
+//   type: string;
+//   group: string;
+//   table: Team[];
+// }
 
 export interface Clubs {
   id: number;

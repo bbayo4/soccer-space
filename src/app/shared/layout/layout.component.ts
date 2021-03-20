@@ -3,6 +3,7 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { Subscription } from 'rxjs';
 
 import { SpinnerService } from '../../core/services/spinner.service';
+import { MenuService } from '@core';
 
 @Component({
     selector: 'app-layout',
@@ -13,16 +14,13 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
     private _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
-    showSpinner: boolean;
-    userName: string;
-    isAdmin: boolean;
-
-    private autoLogoutSubscription: Subscription;
-
+    menu$ = this.menuSrv.getAll();
+    buildRoute = this.menuSrv.buildRoute;
     constructor(
         private changeDetectorRef: ChangeDetectorRef,
         public spinnerService: SpinnerService,
-        private media: MediaMatcher
+        private media: MediaMatcher,
+        private menuSrv: MenuService
     ) {
 
         this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');

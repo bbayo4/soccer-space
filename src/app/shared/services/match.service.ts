@@ -3,18 +3,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Subject, BehaviorSubject, Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-
-import { environment } from '../../../environments/environment';
-import { Match } from '../models/api.model';
+import 'rxjs/add/operator/map';
+import { environment } from '@env/environment';
+// import { Match } from '@core/models/api.model';
+import { Imatches, Fixtures } from '@core/models/matches.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-  private _matches = new BehaviorSubject<Match>({} as any);
-  private dataStore;
-  readonly matches = this._matches.asObservable();
+  private _matches: Subject<Array<Fixtures>> = new BehaviorSubject<Array<Fixtures>>([]);
+  // private _matches = new BehaviorSubject<Array<Matches>>([]);
+  // readonly matches = this._matches.asObservable();
+  public readonly matches: Observable<Array<Fixtures>> = this._matches.asObservable();
 
   constructor(
     private http: HttpClient
@@ -24,23 +25,27 @@ export class MatchService {
     return this._matches.asObservable();
   }
 
-  loadMatchesByLeague(leagueId, matchdayId) {
-    this.http.get <Match>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`).subscribe(
-      data => {
-        this.dataStore = data;
-        this._matches.next(data);
+  getFixtures(leagueId, matchdayId): Observable<Imatches> {
+    return this.http.get(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`)
+      .map(res => res as Imatches);
+  }
+
+  fetchMatches(leagueId, matchdayId) {
+    this.http.get(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`).subscribe(
+      (data: Imatches) => {
+        this._matches.next(data.matches);
       },
       error => console.log('Could not load todos.')
     );
   }
   // return teams as an Observable
-  public getMatches(leagueId, matchdayId): Observable<Match> {
-    return this.http.get<Match>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`)
-      .pipe(
-        tap(_ => console.log('fetched matches')),
-        catchError(this.handleError<Match>('getMatches'))
-      );
-  }
+  // public getMatches(leagueId, matchdayId): Observable<Match> {
+  //   return this.http.get<Match>(`${environment.apiURL}competitions/${leagueId}/matches/?matchday=${matchdayId}`)
+  //     .pipe(
+  //       tap(_ => console.log('fetched matches')),
+  //       catchError(this.handleError<Match>('getMatches'))
+  //     );
+  // }
 
   /**
    * Handle Http operation that failed.

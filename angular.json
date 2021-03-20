@@ -63,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "soccer-space:build"
+            "browserTarget": "soccer-space:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

@@ -1,0 +1,138 @@
+ .matero-container-wrap,
+ .matero-container {
+   height: 100%;
+ }
+
+ .matero-content {
+   position: relative;
+   padding: 16px;
+ }
+
+ .matero-sidenav {
+   position: absolute;
+   overflow-x: hidden;
+   transition: width .4s cubic-bezier(.25, .8, .25, 1);
+   box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%),
+   0 2px 2px 0 rgb(0 0 0 / 14%),
+   0 1px 5px 0 rgb(0 0 0 / 12%)
+ }
+
+ .matero-sidenav.mat-drawer-side {
+   border-width: 0;
+ }
+
+ .matero-header-above .matero-container {
+   height: calc(100% - 64px) !important;
+ }
+
+ .matero-header-above .matero-sidebar-main {
+   height: 100% !important;
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav,
+ .matero-sidenav-collapsed-fix .matero-sidenav {
+   width: 50px;
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav .menu-name,
+ .matero-sidenav-collapsed-fix .matero-sidenav .menu-name,
+ .matero-sidenav-collapsed .matero-sidenav .menu-label,
+ .matero-sidenav-collapsed-fix .matero-sidenav .menu-label,
+ .matero-sidenav-collapsed .matero-sidenav .menu-badge,
+ .matero-sidenav-collapsed-fix .matero-sidenav .menu-badge,
+ .matero-sidenav-collapsed .matero-sidenav .menu-caret,
+ .matero-sidenav-collapsed-fix .matero-sidenav .menu-caret,
+ .matero-sidenav-collapsed .matero-sidenav .matero-user-panel-name,
+ .matero-sidenav-collapsed-fix .matero-sidenav .matero-user-panel-name,
+ .matero-sidenav-collapsed .matero-sidenav .matero-user-panel-email,
+ .matero-sidenav-collapsed-fix .matero-sidenav .matero-user-panel-email,
+ .matero-sidenav-collapsed .matero-sidenav .matero-user-panel-icons,
+ .matero-sidenav-collapsed-fix .matero-sidenav .matero-user-panel-icons {
+   opacity: 0;
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav .matero-user-panel-avatar,
+ .matero-sidenav-collapsed-fix .matero-sidenav .matero-user-panel-avatar {
+   transform: scale(0.5);
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav:hover,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover {
+   width: 240px;
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav:hover .menu-name,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .menu-name,
+ .matero-sidenav-collapsed .matero-sidenav:hover .menu-label,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .menu-label,
+ .matero-sidenav-collapsed .matero-sidenav:hover .menu-badge,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .menu-badge,
+ .matero-sidenav-collapsed .matero-sidenav:hover .menu-caret,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .menu-caret,
+ .matero-sidenav-collapsed .matero-sidenav:hover .matero-user-panel-name,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .matero-user-panel-name,
+ .matero-sidenav-collapsed .matero-sidenav:hover .matero-user-panel-email,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .matero-user-panel-email,
+ .matero-sidenav-collapsed .matero-sidenav:hover .matero-user-panel-icons,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .matero-user-panel-icons {
+   opacity: 1;
+ }
+
+ .matero-sidenav-collapsed .matero-sidenav:hover .matero-user-panel-avatar,
+ .matero-sidenav-collapsed-fix .matero-sidenav:hover .matero-user-panel-avatar {
+   transform: scale(1);
+ }
+
+ .matero-sidenav-collapsed .matero-content-wrap {
+   margin-left: 50px !important;
+ }
+
+ [dir='rtl'] .matero-sidenav-collapsed .matero-content-wrap {
+   margin-left: auto !important;
+   margin-right: 50px !important;
+ }
+
+ .matero-sidenav-collapsed[dir='rtl'] .matero-content-wrap {
+   margin-left: auto !important;
+   margin-right: 50px !important;
+ }
+
+ .matero-navbar-top .matero-topmenu {
+   top: 0;
+ }
+
+ .matero-navbar-top .matero-branding {
+   margin-left: 16px;
+ }
+
+ [dir='rtl'] .matero-navbar-top .matero-branding {
+   margin-left: auto;
+   margin-right: 16px;
+ }
+
+ .matero-header-fixed .matero-header {
+   position: sticky;
+   top: 0;
+ }
+
+ .matero-header-fixed .matero-topmenu {
+   top: 64px;
+ }
+
+ .matero-header-fixed.matero-navbar-side .matero-toolbar {
+   border-bottom: unset;
+ }
+
+ .matero-content-width-fix .matero-content-wrap {
+   margin-left: 240pxp !important;
+ }
+
+ [dir='rtl'] .matero-content-width-fix .matero-content-wrap {
+   margin-left: auto !important;
+   margin-right: 240px !important;
+ }
+
+ .matero-header-white .matero-toolbar,
+ .matero-header-white .matero-topmenu {
+   background-color: white;
+ }

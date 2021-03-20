@@ -1,0 +1,10 @@
+.mat-card {
+  margin-bottom: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+  flex-basis: auto !important;
+}
+
+.mat-card-image {
+  height: 50%
+}

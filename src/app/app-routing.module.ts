@@ -2,9 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {
     path: 'dashboard',
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    data: { title: 'Dashboard', titleI18n: 'dashboard' }
   },
   {
     path: 'teams',
@@ -13,6 +15,14 @@ const appRoutes: Routes = [
   {
     path: 'teams/:id',
     loadChildren: () => import('./modules/team-details/team-details.module').then(m => m.TeamDetailsModule)
+  },
+  {
+    path: 'scores',
+    loadChildren: () => import('./modules/scores/scores.module').then(m => m.ScoresModule)
+  },
+  {
+    path: 'tables',
+    loadChildren: () => import('./modules/tables/tables.module').then(m => m.TablesModule)
   },
   {
     path: '**',

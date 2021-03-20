@@ -5,8 +5,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { environment } from '../../../environments/environment';
-import { Teams, TeamDetails } from '../models/api.model';
+import { environment } from '@env/environment';
+import { Teams, TeamDetails } from '@core/models/api.model';
 
 @Injectable({
   providedIn: 'root'

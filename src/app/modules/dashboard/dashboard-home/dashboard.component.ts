@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { ApiHttpService } from '../../../core/services/api.services';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { MatchService } from '../../../core/services/match.service';
-import { Match } from '../../../core/models/api.model';
+
+import { MatchService } from '@shared/services/match.service';
+import { CompetitionService } from '@shared/services/competition.service';
+import { Imatches, Fixtures, Competition } from '@core/models/matches.model';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,8 +14,11 @@ import { Match } from '../../../core/models/api.model';
 })
 
 export class DashboardComponent implements OnInit {
-  fixtures: Observable<Match>;
+  fixtures$: Observable<Fixtures[]>;
+  _competition: Observable<Competition>;
   matches;
+  comps;
+  data;
   competition;
   matchweek = 'Matchweek ';
   matchdays = [
@@ -38,31 +43,52 @@ export class DashboardComponent implements OnInit {
     { id: 29, name: 'Matchday 29' },
     { id: 30, name: 'Matchday 30' },
   ];
-
+  gridColumns = 2;
   constructor(
-    private matchService: MatchService
+    private matchService: MatchService,
+    private compService: CompetitionService,
+    public router: Router
   ) { }
 
   ngOnInit() {
-    this.fixtures = this.matchService.matches; // subscribe to entire collection
-    this.fixtures.subscribe((item) => {
-      this.matches = item.matches;
-      this.competition = item.competition;
-      this.matchweek = 'matchweek ' + (item.filters ? item.filters.matchday : '');
-      // console.log('matches', this.matches);
+    this._competition = this.compService.competition;
+    this.compService.loadAllCompetition();
+    this._competition.subscribe((item) => {
+      this.comps = item;
+      this.comps = this.comps.competitions;
+      if (this.comps !== undefined){
+        this.data = this.comps.filter(e => {
+          return (e.area.id === 2072 && e.plan === 'TIER_ONE' && e.code === 'PL') ||
+            (e.area.id === 2114 && e.plan === 'TIER_ONE') ||
+          (e.area.id === 2088 && e.plan === 'TIER_ONE') || (e.area.id === 2224 && e.plan === 'TIER_ONE');
+        });
+        console.log('this.matches', this.data);
+      }
     });
-    this.getGames(2021, 11);
+    // this.matchService.fetchMatches(2021, 11);
+    // this.fixtures$ = this.matchService.matches;
+    // this.fixtures$.subscribe((item) => {
+    //   this.matches = item;
+    //   console.log('this.matches', this.matches);
+    // });
+    // console.log('this.fixtures', this.fixtures$);
+
+    // this.fixtures.subscribe((item) => {
+    //   this.matches = item.matches;
+    //   this.competition = item.competition;
+    //   this.matchweek = 'matchweek ' + (item.filters ? item.filters.matchday : '');
+
+    // });
+    // this.getGames(2021, 11);
   }
 
 
   getGames(competionId: number, matchdayId: number): void {
-    this.matchService.loadMatchesByLeague(competionId, matchdayId);
-    // this.matchService.getMatches(competionId, matchdayId)
-    //   .subscribe((match: Match) => {
-    //     this.games$ = match;
-    //     this.matches = this.games$.matches;
-    //     this.matchweek = 'Matchweek ' + this.games$.filters.matchday;
-    //     console.log('games', this.games$);
-    //   });
+    this.matchService.fetchMatches(competionId, matchdayId);
   }
+
+  toggleGridColumns() {
+    this.gridColumns = this.gridColumns === 3 ? 4 : 3;
+  }
+
 }

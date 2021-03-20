@@ -1,0 +1,28 @@
+.score-card {
+  display: flex !important;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.home {
+  flex: 1;
+  text-align: right;
+}
+
+.away {
+  flex: 1;
+  text-align: left;
+}
+
+.score {
+  width: 60px;
+  text-align: center;
+}
+.score-item{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: snow;
+  padding: 4px
+}
+

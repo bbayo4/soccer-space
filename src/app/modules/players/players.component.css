@@ -45,3 +45,17 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
   opacity: 0.5;
 }
+table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  opacity: 0.95;
+}
+
+td {
+  width: 50px;
+}
+
+tr.mat-header-row {
+  background: snow
+}

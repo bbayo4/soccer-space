@@ -1,7 +1,6 @@
 .content {
   position: relative;
   padding: 16px;
-  padding-top: 0;
 }
 .scores {
   border: 1px solid #ccc;
@@ -23,13 +22,13 @@
 .mat-form{
   display: block !important;
 }
-.card-row {
+/* .card-row {
   margin-right: -8px;
   margin-left: -8px;
   flex-flow: row wrap;
   box-sizing: border-box;
   display: flex;
-}
+} */
 .mat-list {
   cursor: pointer;
 }
@@ -56,4 +55,59 @@
 }
 .example-box {
   margin: 12px !important;
+}
+.container {
+  text-align: center;
+}
+
+.score-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-card {
+  width: 550px;
+  display: flex !important;
+}
+
+.home {
+  flex: 1;
+  text-align: right;
+}
+
+.away {
+  flex: 1;
+  text-align: left;
+}
+
+.score {
+  width: 100px;
+}
+
+mat-toolbar {
+  justify-content: space-between;
+}
+
+/* .content {
+  padding: 16px;
+}
+
+.content>mat-card {
+  margin-bottom: 16px;
+} */
+
+.content {
+  position: relative;
+  padding: 16px;
+  padding-top: 0;
+}
+
+.mat-card {
+  margin-bottom: 16px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.mat-card-image {
+  height: 50%
 }

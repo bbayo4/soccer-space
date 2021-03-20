@@ -1,0 +1,31 @@
+.matero-user-panel {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.soccer-avatar {
+  width: 100px;
+}
+
+.matero-user-panel-name,
+.matero-user-panel-email {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-weight: normal;
+}
+
+.matero-user-panel-name,
+.matero-user-panel-email,
+.matero-user-panel-icons {
+  opacity: 1;
+  transition: swift-ease-out(opacity);
+}
+
+.matero-user-panel-icons {
+  white-space: nowrap;
+}
+
+.matero-user-panel-icons .mat-icon-button {
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+}

@@ -6,6 +6,12 @@
   z-index: 2;
 }
 
+.navbar-color {
+  box-shadow: 0 3px 1px -2px rgb(0 0 0 / 20%),
+  0 2px 2px 0 rgb(0 0 0 / 14%),
+  0 1px 5px 0 rgb(0 0 0 / 12%) !important
+}
+
 .navbar-brand {
   text-decoration: none;
   color: white;
@@ -55,10 +61,14 @@ mat-sidenav {
 }
 
 a.mat-list-item.active {
-  background: rgba(0, 0, 0, .04);
+  background: #414548;
 }
 
 #push-bottom {
   position: absolute;
   bottom: 0;
+}
+
+.router-link-active {
+  background-color: #414548;
 }

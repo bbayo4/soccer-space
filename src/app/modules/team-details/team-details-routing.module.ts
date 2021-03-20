@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LayoutComponent } from '../../shared/layout/layout.component';
+// import { LayoutComponent } from '../../shared/layout/layout.component';
+import { AdminLayoutComponent } from '../../shared/layout/admin-layout.component';
 import { TeamDetailsComponent } from './team-details-home/team-details.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: AdminLayoutComponent,
     children: [
       { path: '', component: TeamDetailsComponent },
     ]

@@ -1,0 +1,14 @@
+
+.mat-card {
+  margin-bottom: 16px;
+  cursor: pointer
+}
+
+.card-col {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+.w-full {
+  width: 100% !important;
+}

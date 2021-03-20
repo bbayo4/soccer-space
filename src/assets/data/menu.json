@@ -1,0 +1,28 @@
+{
+  "menu": [
+    {
+      "route": "dashboard",
+      "name": "Dashboard",
+      "type": "link",
+      "icon": "dashboard"
+    }, 
+    {
+      "route": "tables",
+      "name": "Tables",
+      "type": "link",
+      "icon": "format_line_spacing"
+    },
+    {
+      "route": "teams",
+      "name": "Teams",
+      "type": "link",
+      "icon": "peoples"
+    },
+    {
+      "route": "scores",
+      "name": "Scores",
+      "type": "link",
+      "icon": "color_lens"
+    }
+  ]
+}
