@@ -12,6 +12,9 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"
   },
+    "engines": {
+    "node": "^8 || ^10"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.0",
