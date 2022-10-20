@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
-    "build-storybook": "npm run docs:json && build-storybook"
+    "build-storybook": "npm run docs:json && build-storybook",
+    "heroku-postbuild": "ng build — prod"
   },
   "engines": {
     "node": "^6 || ^8 || ^10"
