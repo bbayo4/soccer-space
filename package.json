@@ -12,8 +12,8 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "build-storybook": "npm run docs:json && build-storybook"
   },
-    "engines": {
-    "node": "^8 || ^10"
+  "engines": {
+    "node": "^6 || ^8 || ^10"
   },
   "private": true,
   "dependencies": {
